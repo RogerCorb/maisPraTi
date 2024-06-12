@@ -35,7 +35,10 @@
                     <a class="nav-link" href="index.html">Main</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="listTask.html">Management</a>
+                    <a class="nav-link" href="listTask.html">Management Search</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="editTask.html">Management Edit</a>
                 </li>
             </ul>
         </div>
@@ -48,7 +51,7 @@
                     <div class="card rounded-3">
                         <div class="card-body p-4">
 
-                            <h4 class="text-center my-3 pb-3">To Do List</h4>
+                            <h4 class="text-center my-3 pb-3">To Do List - Search</h4>
 
                             <form class="row g-3 justify-content-center align-items-center mb-4 pb-2">
                                 <div class="col-md-2 mb-3">
@@ -98,7 +101,7 @@
                                 <div class="col-md-4 mb-3">
                                     <button type="button" data-mdb-button-init data-mdb-ripple-init
                                         class="btn btn-dark" onclick="searchTasks()">Search
-                                    </button>
+                                    </button>                                   
                                 </div>
                             </form>
 
@@ -108,6 +111,8 @@
                                         <th scope="col">Date</th>
                                         <th scope="col">Type</th>
                                         <th scope="col">Description</th>
+                                        <th scope="col">Action</th>
+                                        <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody id="listTasks"></tbody>

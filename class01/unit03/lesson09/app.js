@@ -189,7 +189,7 @@ function loadTasks(tasks) {
         }
         row.insertCell(3).append(btn) ;       
 
-        btnEdit.className = 'btn btn-danger';
+        btnEdit.className = 'btn btn-warning';
         btnEdit.id = t.id;
         btnEdit.innerHTML = 'Edit';
 

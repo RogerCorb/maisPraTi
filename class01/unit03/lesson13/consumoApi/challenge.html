@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Import</title>
+    <script type="module">
+       
+        import { getDadosApi } from './lib.mjs'
+
+        //getEnderecoByCEP('96300000').then(dados => console.log(dados))
+        let valorString='';
+        getDadosApi(document.getElementById('endereco').value).then(dados => {
+            valorString=dados.data.replaceAll(',' ,'');
+        })
+
+        let vetor = valorString.split(' ');
+        let vetorKey=[];
+        let vetorAge=[];
+        let vetorObjetos=[];
+        for (let i=0; i<vetor.length ; i++) {
+            let key='';
+            let age='';
+            if(i % 2 ===0 ) {                
+                for (let j=4; j<vetor[i].length ; j++){ 
+                    key+=vetor[i].charAt(j);
+                }  
+                vetorKey.push( key );               
+            } else { 
+                for (let k=4; k<vetor[i].length ; k++){ 
+                    age+=vetor[i].charAt(k);
+                } 
+                vetorAge.push( Number(age) )  
+            }                                 
+        }
+        for (let l=0; l<vetorKey.length ;l++) { 
+            let key = vetorKey[l];
+            let age = vetorAge[l];
+            vetorObjetos.push({ key,age });
+        }
+
+        
+        console.log(vetorObjetos)
+
+        /* Pesquisem mais sobre Promises e Promises Allsettled e Promise Any / all*/
+    </script>
+</head>
+<body>
+
+    Digite o endereco: <input type="text" id="endereco">
+    <button onclick="getDadosApi(this.value)">Submit</button>
+    
+</body>
+</html>
